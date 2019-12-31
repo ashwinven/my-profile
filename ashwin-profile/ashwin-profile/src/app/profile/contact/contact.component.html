@@ -1,0 +1,108 @@
+<head><script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
+  <script type="text/javascript">
+     (function(){
+        emailjs.init("user_b0usKkuWEtIVQlb6wrVAd")
+     })();
+  </script>
+  </head>
+<div class="section" id="contact">
+        <div class="cc-contact-information" style="background-image: url('assets/images/contact.jpg');">
+          <div class="container">
+            <div class="cc-contact">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="card mb-0" data-aos="zoom-in">
+                    <div class="h4 text-center title">Contact Me</div>
+                    <div class="row">
+                      <div class="col-md-7">
+                        <div class="card-body">
+                          <form action="#" class="p-5 bg-info" [formGroup]="contactForm">
+                            <div class="row form-group">
+                               <div class="col-md-6 mb-3 mb-md-0">
+                                 <label class="text-black co" for="fname">First Name</label>
+                                 <input type="text" id="fname" placeholder="your first name" formControlName="fname"class="form-control" #newfname>
+                                 <div *ngIf="processingStart && contactForm.controls.fname.errors" class="error">
+                                     <div *ngIf="contactForm.controls.fname.errors.required"> First Name is Required</div>
+                                     <div *ngIf="contactForm.controls.fname.errors.pattern"> Invalid Value for First Name</div>
+                                   </div>
+                   
+                               </div>
+                               <div class="col-md-6">
+                                 <label class="text-black co" for="lname">Last Name</label>
+                                 <input type="text" id="lname" formControlName="lname"class="form-control" placeholder="your last name">
+                                 <div *ngIf="processingStart && contactForm.controls.lname.errors" class="error">
+                                     <div *ngIf="contactForm.controls.lname.errors.required"> Last Name is Required</div>
+                                     <div *ngIf="contactForm.controls.lname.errors.pattern"> Invalid Value for Last Name</div>
+                                   </div>
+                               </div>
+                             </div>
+                   
+                             <div class="row form-group">
+                   
+                               <div class="col-md-12">
+                                 <label class="text-black co" for="email">Email</label>
+                                 <input type="email" id="email" formControlName="email" class="form-control" placeholder="please enter your contact email id" #newemail>
+                                   <div *ngIf="processingStart && contactForm.controls.email.errors" class="error">
+                                       <div *ngIf="contactForm.controls.email.errors.required"> Your Email Id is required</div>
+                                       <div *ngIf="contactForm.controls.email.errors.email"> Invalid Email Id</div>
+                                   </div>
+                               </div>
+                             </div>
+                   
+                      <!--       <div class="row form-group">
+                               <div class="col-md-12">
+                                 <label class="text-black co" for="subject">Subject</label>
+                                 <input type="subject" placeholder="Please enter the organization name and role." id="subject" class="form-control">
+                               </div>
+                             </div>-->
+                   
+                             <div class="row form-group">
+                               <div class="col-md-12">
+                                 <label class="text-black co" for="message">Message</label>
+                                 <textarea name="message" placeholder="Please enter your message" formControlName="msg"id="message" cols="30" rows="6" class="form-control" #newmessage></textarea>
+                                 <div *ngIf="processingStart && contactForm.controls.msg.errors" class="error">
+                                     <div *ngIf="contactForm.controls.msg.errors.required"> Message is required</div>
+                                   </div>
+                               </div>
+                             </div>
+                   
+                             <div class="row form-group">
+                               <div class="col-md-12">
+                                 <input (click) = "shareEmail(newfname,newemail,newmessage, confirmationModal)" type="submit" class="btn btn-light" value="Send Message">
+                               </div>
+                             </div>
+                         </form>
+                        </div>
+                      </div>
+                      <div class="col-md-5">
+                        <div class="card-body">
+                          <p class="mb-0">
+                            <strong>Phone</strong>
+                          </p>
+                          <p class="pb-2">(857) 544-1289</p>
+                          <p class="mb-0">
+                            <strong>Email</strong>
+                          </p>
+                          <p>venkatakrishnan.a@husky.neu.edu</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ng-template #confirmationModal let-c="close" let-d="dismiss">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h6 class="modal-title">Thank you for your email.I will get back to you within <strong>12 hours.</strong></h6>
+          </div>
+      
+          <div class="modal-footer">
+            <button type="button" class="btn btn-info" (click)="c('yes')">Okay!</button>
+          </div>
+        </div>
+      </ng-template>
+      <ng-snotify class="material"></ng-snotify>
