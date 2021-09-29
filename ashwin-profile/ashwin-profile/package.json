@@ -27,7 +27,7 @@
     "emailjs": "^2.2.0",
     "emailjs-com": "^2.4.1",
     "express": "^4.17.1",
-    "i": "^0.3.6",
+    "i": "^0.3.7",
     "ng-bootstrap": "^1.6.3",
     "ng-snotify": "^4.3.1",
     "ngx-spinner": "^8.0.3",
